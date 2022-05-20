@@ -55,7 +55,7 @@
 //                                             What is the difference between null and undefined?
 // both represent empty value
 // Undefined, Undefined means a variable has been declared but has not yet been assigned a value. When you define a variable with no value, Javascript gives it a value of undefined.
-// null, An object with empty value. An intentional absence of data.
+// Null, An object with empty value. An intentional absence of data.
 
 // let x = typeof(undefined)
 // console.log(x) //returns undefined
@@ -63,7 +63,7 @@
 // let y = typeof(null);
 // console.log(y) //returns object
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                  What is prototypal inheritance?
 // let car = function(model) { //constuctor
 //     this.model = model;
@@ -95,3 +95,71 @@
 // Function expression is an anonymous function that is saved into the variable. Since it is saved to the variable, it behaves like a variable. It also has a variable scope so it won't be available before its definition.
 // function declaration can be called before the function is defined
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                                Explain hoisting?
+//Hoisting is the default behavior of JavaScript where all the variable and function declarations are moved on top. In simple words, we can say that Hoisting is a process in which, irrespective of where the variables and functions are declared, they are moved on top of the scope. The scope can be both local and global. Variable initializations are not hoisted, only variable declarations are hoisted.
+
+// console.log(message1); //output : undefined
+// var message1 = "The variable Has been hoisted";
+
+
+// message("Good morning"); //Good morning
+
+// function message(name) {
+//   console.log(name);
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                                 What are global variables?
+// Global variables are accessible through out the webpage or the document. Global variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable
+
+// msg = "Hello"; // var is missing, it becomes global variable
+
+//                                              What are the problems with global variables?
+//The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                             What is a strict mode in javascript
+//Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression "use strict"; instructs the browser to use the javascript code in the Strict mode.
+
+
+////                                             Why do you need strict mode?
+//Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+
+////                                             How do you declare strict mode?
+//The strict mode is declared by adding "use strict"; to the beginning of a script or a function. If declared at the beginning of a script, it has global scope.
+// "use strict" strictly checks if the variable is defined using "var" keyword
+
+// "use strict";
+// x = 3.14; // This will cause an error because x is not declared
+//             // and if you declare inside a function, it has local scope
+// x = 3.14; // This will not cause an error.
+
+
+// myFunction();
+// function myFunction() {
+//   "use strict";
+//   y = 3.14; // This will cause an error
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                             What are closures?
+//Closures are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. It gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created. To use a closure, simply define a function inside another function and expose it.
+
+// function Welcome(name) {
+    //     var greetingInfo = function (message) {
+        //       console.log(message + " " + name);
+        //     };
+        //     return greetingInfo;
+        //   }
+        //   var myFunction = Welcome("Hamlet");
+        //   myFunction("Greetings Mr."); //Output: Welcome Hamlet
+        //   myFunction("Hello there Mr."); //output: Hello Mr.Hamlet
+        
+        //As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.
+        
+        
+////                                             Why do we need closures?
+//Self contained modules, Self contained state
+//Closure makes it possible for a function to have "private" variables
+//Closure is a function having access to the parent scope, even after the parent function has closed.
