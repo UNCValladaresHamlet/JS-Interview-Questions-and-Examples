@@ -167,23 +167,25 @@
 //Closure is a function having access to the parent scope, even after the parent function has closed.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////                                   Explain IIFE? What is the use of IIFE?
+////                                   Explain IIFE? What is the use of IIFE? 
 
 // IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below.
-//The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below.
+// The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below.
 
 // (function () {
-//     var message = "IIFE";
-//     console.log(message);
-//   })(); 
-//   console.log(message); //Error: message is not defined
-
-//Anonymous function which gets immediately invoked.
-
+    //     var message = "IIFE";
+    //     console.log(message);
+    //   })(); 
+    //   console.log(message); //Error: message is not defined
+    
+    //Anonymous function which gets immediately invoked.
+    
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                     What is the name collision in global scope ?
+//                             What is the name collision in global scope ? Normal function vs IIFE?
 
 // Name collision happens when you name the same variable names or method names in the same context.
+// Because IIFE does not have name, so there is no way you can get name collision.
+// A normal function has a name while IIFE does not have name. With a normal function you can have a name collision but with IIFE you will not have name collision.
 
 // function func1() {
 //     console.log("This is a first definition");
@@ -194,6 +196,42 @@
 //   }
 // func1(); // This is a second definition
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                             What are design patterns ? Most used design patterns ?
+
+// Design patterns are time tested architecture solutions. To create a single instance we can use singleton pattern, if the object creational process is complex, we can use factory pattern and so/
+// Module Design pattern or the module revealing pattern is the most used design pattern.
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                             What are the various ways to create Javascript objects?
 
+// Object literal, Objects create method, Object constuctor, Function constructor
+
+// The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.Object literal property values can be of any data type, including array, function, and nested object.
+var object = {
+    name: "Sudheer",
+    age: 34
+};
+
+// The create method of Object creates a new object by passing the prototype object as a parameter
+var object = Object.create(null);
+
+// The simplest way to create an empty object is using the Object constructor. Currently this approach is not recommended.
+var object = new Object();
+
+// Create any function and apply the new operator to create object instances,
+function Person(name) {
+    this.name = name;
+    this.age = 21;
+  }
+var object = new Person("Sudheer");
+
+// ES6 introduces class feature to create the objects
+class Person {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+  
+  var object = new Person("Sudheer");
