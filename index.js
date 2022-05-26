@@ -1,12 +1,13 @@
 //                                              What are the data types supported by JavaScript?
 // Answer: Primitive and objects
 // typeof returns a string description indicating the type of operand
+// SNNUBO (String, Number, Null, Undefined, Boolean, Object)
 
 // typeof "John Doe" // Returns "string"
 // typeof 3.14 // Returns "number"
-// typeof true // Returns "boolean"
-// typeof undefined // Returns "undefined"
 // typeof null // Returns "object" because its technically an Object with empty value 
+// typeof undefined // Returns "undefined"
+// typeof true // Returns "boolean"
 // typeof Symbol('symbol') // Returns Symbol
 // typeof 234567890123456789012345678901234567890n // Returns bigint
 
@@ -206,32 +207,43 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                             What are the various ways to create Javascript objects?
 
-// Object literal, Objects create method, Object constuctor, Function constructor
+// Object literal, Objects create method, Object constuctor, Function constructor, ES6 Class
 
 // The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.Object literal property values can be of any data type, including array, function, and nested object.
-var object = {
-    name: "Sudheer",
-    age: 34
-};
+// var object = {
+//     name: "Sudheer",
+//     age: 34
+// };
 
-// The create method of Object creates a new object by passing the prototype object as a parameter
-var object = Object.create(null);
+// // The create method of Object creates a new object by passing the prototype object as a parameter
+// var patnew = Object.create(pat);
+// patnew.age = 10;
 
-// The simplest way to create an empty object is using the Object constructor. Currently this approach is not recommended.
-var object = new Object();
+// // The simplest way to create an empty object is using the Object constructor. Currently this approach is not recommended.
+// var object = new Object();
 
-// Create any function and apply the new operator to create object instances,
-function Person(name) {
-    this.name = name;
-    this.age = 21;
-  }
-var object = new Person("Sudheer");
+// // Create any function and apply the new operator to create object instances,
+// function Patient(name) {
+//     this.name = name;
+//     this.age = 21;
+//   }
+// var patient1 = new Patient("Sudheer");
 
-// ES6 introduces class feature to create the objects
-class Person {
-    constructor(name) {
-      this.name = name;
-    }
-  }
+// // ES6 introduces class feature to create the objects
+// class Person {
+//     constructor(name) {
+//       this.name = name;
+//     }
+//   }
   
-  var object = new Person("Sudheer");
+// var object = new Person("Sudheer");
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                               Explain Prototype chaining?
+
+// Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through Object.getPrototypeOf(object) or **proto** property whereas prototype on constructors function is available through Object.prototype.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                               What is the Temporal Dead Zone
+
+// The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
